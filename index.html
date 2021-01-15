@@ -1,0 +1,362 @@
+<!--written by stonny-->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://rawcdn.githack.com/stonny71/pling/e5f31458c372f0ec4e46a9e92b8d32eada36fa9b/pling.js">    
+</script>
+<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="w3.css"/>
+<title></title>
+<script type="text/javascript">
+
+</script>
+<style>
+    
+    
+    
+#p1{
+position:absolute;
+left:3%;
+top:32%;
+}
+#p2{
+position:absolute;
+right:3%;
+top:32%;
+}
+
+{
+background:red;
+}
+
+.breathe{
+animation:breath 1s infinite;
+}
+
+.shoot{
+animation:shot .2s ;
+}
+@keyframes shot{
+from{
+transform:scale(1.1);}
+to{transform:scale(1.18);
+transform:scaleY(1.5)
+}
+}
+
+@keyframes breath{
+from{transform:scale(1.1);}
+to{transform:scale(1.13);}
+}
+
+#info1{
+position:absolute;top:20%;
+left:3%;
+}
+#info2{
+position:absolute;top:20%;
+right:3%;
+}
+
+#block1{
+position:absolute;
+width:20px;
+height:60px;
+background:#434C59;
+left:26%;top:34%;
+}
+#block2{
+position:absolute;
+width:20px;
+height:60px;
+background:#434C59;
+right:26%;top:34%;
+}
+
+#btn1{
+position:absolute;
+background:#434C59;
+left:3%;top:50%;
+display:block;
+animation:flame 5s infinite;
+}
+
+#btn1:active{
+background:red ! important;
+}
+
+
+
+button {
+outline:none;
+}
+
+#ammo1{
+font-size:7px;
+color:black;
+position:absolute;
+top:34%; left:14%;
+}
+.am1{
+visibility:hidden;
+animation:run1 .5s ;
+}
+
+
+#ammo2{
+font-size:7px;
+color:black;
+position:absolute;
+top:33%; right:14%;
+}
+.am2{
+visibility:hidden;
+animation:run2 .5s ;
+}
+
+
+@keyframes run1{
+from{ visibility:visible;
+left:25%;
+top:30%;
+}
+to{ left:70%;
+ top:33%;
+ color:green;
+ font-size:30px;
+ }
+}
+
+
+@keyframes run2{
+from{
+visibility:visible;
+ right:18%;}
+to{ right:70%;
+ top:33%;
+ color:red;
+ font-size:30px;
+ }
+}
+
+#ground{
+overflow:scroll;
+background:black;
+height:300px; width:100%;
+position:absolute;
+top:44%;
+}
+
+body{
+background: linear-gradient(#f1f1f1 50%, white 50%);
+}
+
+section{
+display:block;
+bacground:black;
+color:white;
+}
+
+#txt{
+position:absolute;
+color:yellow;
+top:50%;
+right:50%;
+}
+#txt2{
+position:absolute;
+color:yellow;
+top:50%;
+
+}
+.hide{
+display:none;
+}
+
+
+@keyframes flame{
+0%{transform:scale(0); }
+80%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+
+#blaze{
+position:absolute;
+top:39.5%;
+left:33%;
+animation:shiv .1s infinite ;
+}
+.zombie{animation:shiv2 .2s infinite}
+@keyframes shiv{
+0%{font-size:14px;}
+80%{font-size:14px;}
+100%{font-size:14.5px;}
+}
+@keyframes shiv2{
+0%{font-size:17px;}
+80%{font-size:18px;}
+100%{font-size:19px;}
+}
+</style>
+
+
+</head>
+<body>
+<!--sound effects downloaded from soundbible.com-->
+<audio id="bgmusic1" >
+<source  src="https://m.box.com/file/758645306944/download?shared_link=https%3A%2F%2Fapp.box.com%2Fs%2F9vzic13wrta0whc8qda0p931h656haxo" type="audio/mp3" >
+</audio>
+<audio id="bgmusic2" >
+<source  src="https://m.box.com/file/758577131339/download?shared_link=https%3A%2F%2Fapp.box.com%2Fs%2Fd5fc22vjsymsdxb16h7hjq6cuayprq1w" type="audio/mp3" >
+</audio>
+
+<audio id="fire1" >
+<source  src="https://m.box.com/file/758561187906/download?shared_link=https%3A%2F%2Fapp.box.com%2Fs%2Flxtueggg5s76w6tn9x84p70ndmg18z56" type="audio/mp3" >
+</audio>
+
+<audio id="fire2" >
+<source  src="https://m.box.com/file/758577504120/download?shared_link=https%3A%2F%2Fapp.box.com%2Fs%2Fjkqpdoerzb2tc6geygtp3u2li3zv57g0" type="audio/mp3" >
+</audio>
+
+<div id="main" >
+<header id="header" style="display:none"  class="w3-padding w3-deep-purple w3-block" >Lucky War</header>
+<section id="section" class="w3-bottom"  >
+<marquee behaviour="alternate-reversed" scrollamount="10">  
+<h1 style=""  id="result" class="w3-text-deep-purple" >LUCKY WAR</h1>
+<div ></marquee>
+<button onclick="pla()" class="w3-padding-32 w3-block w3-btn w3-deep-purple" >PLAY</button>
+</div>
+</section>
+
+
+
+
+<main id="game" style="display:none"  >
+<div id="info1" ><span id="xp1" >100</span> HP (player 1)</div>
+<div id="info2" ><span id="xp2" >100</span> HP (enemy)</div>
+<div id="p1" class="breathe" >
+<img id="pl1" width="70"  src="https://m.box.com/file/758570274241/https%3A%2F%2Fapp.box.com%2Fs%2Fky501fxkej9vtppplqf28gf1l67zp5ac/preview/preview.png" height="70" >
+</div>
+
+<div id="block1" ></div>
+<div id="block2" ></div>
+<div id="ground" ></div>
+<div id="blaze">🚩  ........
+...     🏴</div>
+<div id="bullet" >
+<div id="ammo1" >✷  </div>
+<div id="ammo2" >✷  </div>
+</div>
+<div id="p2" class="breathe"  >
+<img id="pl2"  width="70"  src="https://m.box.com/file/758571376387/https%3A%2F%2Fapp.box.com%2Fs%2Fykzkficctke7f9srn1muhix8f1eda6hf/preview/preview.png" height="70" >
+</div>
+
+<div  class="w3-card w3-padding w3-black"  >
+
+
+<div id="txt" >
+</div>
+
+<div class="w3-display-middle"  id="txt2" ></div>
+<center>
+
+
+<p id="btn1"  class="w3-badge magic  w3-circle w3-red" style="position: absolute; top:70%;left:50%;padding:30px" >Double tap to Shoot</p>
+</center>
+
+</main>
+</div>
+</body>
+<script>
+Pling("<small>This is a turn-based game.<br>The only way to survive is to stay lucky. Any player whose shield's health point runs below 5 loses the war.<br>(Double tap to shoot)<br>Increase your device volume for best game experience.</small>",'About The Game');
+
+function id(x){ 
+return document.getElementById(x);
+}
+
+var block1 = id("block1");
+var block2 = id("block2");
+var p1 = id("pl1");
+var p2 = id("pl2");
+var info1 = id("xp1");
+var info2 = id("xp2");
+var ammo1 = id("ammo1");
+var ammo2 = id("ammo2");
+var game = id("game");
+var result = id("result");
+var main = id("game");
+var bullet = id("bullet");
+var txt = id("txt");
+var btn= id("btn1");
+var music1 = id("bgmusic1");
+var music2 = id("bgmusic2");
+var fire1 = id("fire1");
+var fire2 = id("fire2");
+btn.onclick=function (){
+var a = Math.floor(Math.random()*2)
+
+if(info1.innerText<=5){
+block1.style.display="none";
+p1.src="https://m.box.com/file/758563374698/https%3A%2F%2Fapp.box.com%2Fs%2F7qh0pg0xued9w1v7jvvneg5zzi14ehwu/preview/preview.png";
+bullet.style.display="none"
+btn.style.display="none";
+txt.style.display="none";
+txt2.innerText="YOU LOST THE BATTLE";
+txt2.style.color="red"
+}
+if(info2.innerText<=5){
+block2.style.display="none";
+p2.src="https://m.box.com/file/758563374698/https%3A%2F%2Fapp.box.com%2Fs%2F7qh0pg0xued9w1v7jvvneg5zzi14ehwu/preview/preview.png";
+bullet.style.display="none";
+btn.style.display="none";
+txt.style.display="none";
+txt2.innerText="YOU WON THE BATTLE";
+txt2.style.color="#00ff0p"
+}
+
+
+if(a == 1){
+txt.innerText = "success"
+txt.style.color="#00ff00"
+//txt.classList.toggle("")
+info2.innerText= info2.innerText - 5;
+ammo1.classList.toggle("am1");
+p1.classList.toggle("shoot");
+fire1.play();
+}
+if(a == 0){
+txt.innerText = "damage received"
+txt.style.color="red"
+info1.innerText= info1.innerText - 5;
+ammo2.classList.toggle("am2");
+p2.classList.toggle("shoot");
+fire2.play();
+}
+
+}
+
+function pla(){
+id("section").style.display="none";
+id("header").style.display="block";
+id("game").style.display="block";
+music1.play()
+music1.loop=true;
+music2.play();
+
+setTimeout(function(){music2.play()},15000);
+
+setTimeout(function(){music2.play()},30000);
+setTimeout(function(){music2.play()},37000);
+
+ }
+
+
+setInterval(function (){ 
+btn1.classList.toggle("hide")
+}, 2000)
+ 
+
+
+</script>
+</html>
